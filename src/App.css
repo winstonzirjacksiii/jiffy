@@ -60,3 +60,11 @@ body {
 .m-toggle.is-active {
   max-height:200px;
 }
+
+.m-hidden {
+  height:1px;
+  width:1px;
+  position:absolute;
+  visibility:hidden;
+  overflow:hidden;
+}
