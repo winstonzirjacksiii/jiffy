@@ -9,8 +9,8 @@ function Layout (props) {
     <div className="primary-layout">
       <Header />
       <main>
-      <Route path="/" exact component={Main} />
-      <Route path="/trending" exact component={Trending} />
+        <Route path="/" exact component={Main} />
+        <Route path="/trending" exact component={Trending} />
       </main>
     </div>
   );

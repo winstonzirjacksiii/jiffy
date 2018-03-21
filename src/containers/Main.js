@@ -1,7 +1,9 @@
 import React from 'react';
 import Giphy from '../modules/giphy';
-import GifCard from '../components/GifCard';
+import GifGrid from '../components/GifGrid';
 import SearchForm from '../components/SearchForm';
+
+import GifFormatter from '../modules/gifFormatter';
 
 class Main extends React.Component {
   constructor(props) {
@@ -16,12 +18,15 @@ class Main extends React.Component {
 
   handleFormSubmit({term, count, rating}) {
     Giphy.searchGifs(term, count,rating).then((results) => {
-      if (results.length) this.setState({gifs: results});
+      if (results.length) {
+        const newResults = results.map(GifFormatter);
+
+        this.setState({gifs: newResults}); 
+      }
     });
   }
 
   render() {
-    const gifCards = this.state.gifs.map((gifObj, index) => <GifCard key={index} gifObj={gifObj} />);
 
     return (
       <main>
@@ -29,7 +34,7 @@ class Main extends React.Component {
           You're on the main page.
         </p>
         <SearchForm handleSubmit={this.handleFormSubmit.bind(this)} />
-        <section>{gifCards}</section>
+        <GifGrid gifs={this.state.gifs}/>
       </main>
     );
   }
