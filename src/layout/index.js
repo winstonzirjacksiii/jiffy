@@ -8,10 +8,8 @@ function Layout (props) {
   return (
     <div className="primary-layout">
       <Header />
-      <main>
-        <Route path="/" exact component={Main} />
-        <Route path="/trending" exact component={Trending} />
-      </main>
+      <Route path="/" exact component={Main} />
+      <Route path="/trending" exact component={Trending} />
     </div>
   );
 }

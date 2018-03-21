@@ -1,9 +1,9 @@
 import React from 'react';
-import Giphy from '../modules/giphy';
+import Giphy from '../utilities/giphy';
 import GifGrid from '../components/GifGrid';
 import SearchForm from '../components/SearchForm';
 
-import GifFormatter from '../modules/gifFormatter';
+import GifFormatter from '../utilities/gifFormatter';
 
 class Main extends React.Component {
   constructor(props) {
@@ -16,8 +16,8 @@ class Main extends React.Component {
     };
   }
 
-  handleFormSubmit({term, count, rating}) {
-    Giphy.searchGifs(term, count,rating).then((results) => {
+  handleFormSubmit({term, count, rating, offset}) {
+    Giphy.searchGifs(term, count, rating, offset).then((results) => {
       if (results.length) {
         const newResults = results.map(GifFormatter);
 
@@ -30,9 +30,6 @@ class Main extends React.Component {
 
     return (
       <main>
-        <p className="App-intro">
-          You're on the main page.
-        </p>
         <SearchForm handleSubmit={this.handleFormSubmit.bind(this)} />
         <GifGrid gifs={this.state.gifs}/>
       </main>

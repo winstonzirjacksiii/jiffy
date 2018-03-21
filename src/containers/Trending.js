@@ -1,8 +1,9 @@
 import React from 'react';
-import Giphy from '../modules/giphy';
+import Giphy from '../utilities/giphy';
 import GifGrid from '../components/GifGrid';
+import TrendingForm from '../components/TrendingForm';
 
-import GifFormatter from '../modules/gifFormatter';
+import GifFormatter from '../utilities/gifFormatter';
 
 
 class Main extends React.Component {
@@ -12,14 +13,16 @@ class Main extends React.Component {
     this.state = {
       gifs: []
     }
+
+    this.getTrendingData = this.getTrendingData.bind(this);
   }
 
   componentDidMount() {
-    this.getTrendingData();
+    this.getTrendingData({count: "10"});
   }
 
-  getTrendingData() {
-    Giphy.getTrendingGifs().then((results) => {
+  getTrendingData({count, rating}) {
+    Giphy.getTrendingGifs(count, rating).then((results) => {
       const newResults = results.map(GifFormatter);
 
       if (results.length) this.setState({gifs: newResults});
@@ -29,10 +32,7 @@ class Main extends React.Component {
   render() {
     return (
       <main>
-        <p className="App-intro">
-          You're now on the trending page.
-          <button onClick={this.getTrendingData.bind(this)}>Update Trending Maybe?</button>
-        </p>
+        <TrendingForm handleSubmit={this.getTrendingData} />
         <GifGrid gifs={this.state.gifs}/>
       </main>
     );

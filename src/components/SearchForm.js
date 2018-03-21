@@ -17,15 +17,15 @@ class SearchForm extends React.Component {
     event.preventDefault();
     this.props.handleSubmit({
       term: this.state.text, 
-      count: 6,
+      count: 20,
       rating: "R"
     });
   }
 
   render () {
     return (
-      <form id="searchForm" onSubmit={this.handleFormSubmit.bind(this)}>
-        <input id="searchField" type="text" value={this.state.text} onChange={this.handleChange.bind(this)} />
+      <form className="m-form" id="searchForm" onSubmit={this.handleFormSubmit.bind(this)}>
+        <input id="searchField" name="term" type="text" value={this.state.text} onChange={this.handleChange.bind(this)} />
         <button type="submit">Search</button>
       </form>
     );

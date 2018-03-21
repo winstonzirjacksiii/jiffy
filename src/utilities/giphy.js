@@ -17,10 +17,8 @@
     });
   }
 
-  const searchGifs = (term ="", count = 25, rating = "PG", offset = 0) => {
+  const searchGifs = (term = "", count = 25, rating = "PG", offset = 0) => {
     let searchUrl = `${baseUrl}search?api_key=${apiKey}&q=${term}&offset=${offset}&limit=${count}&fmt=json`;
-
-    console.log("searching for:", term);
 
     return fetch(searchUrl).then(response => {
       if (!response.ok) throw new Error(response.statusText);
