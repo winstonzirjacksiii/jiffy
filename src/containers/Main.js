@@ -12,16 +12,22 @@ class Main extends React.Component {
     this.state = {
       gifs: [],
       currOffset: 0,
-      loadMore: false
+      loadMore: false,
+      isLoading: false
     };
   }
 
   handleFormSubmit({term, count, rating, offset}) {
+    this.setState({isLoading: true});
+    
     Giphy.searchGifs(term, count, rating, offset).then((results) => {
       if (results.length) {
         const newResults = results.map(GifFormatter);
 
-        this.setState({gifs: newResults}); 
+        this.setState({
+          gifs: newResults,
+          isLoading: false
+        }); 
       }
     });
   }
