@@ -18,7 +18,7 @@ const WithOnScrollGen = Component =>
       if ( this.props &&
           (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 250) && 
            this.props[this.props.content].length &&
-           !this.props.isLoading ) {
+           !this.props.isLoading) {
         this.props.callback();
       }
     }
