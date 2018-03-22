@@ -1,19 +1,24 @@
 import React from 'react';
 import debounce from '../utilities/debouncer';
 
-function WithOnScrollGen(Component) {
+const WithOnScrollGen = Component => 
   class WithOnScroll extends React.Component {
+    constructor(props) {
+      super();
 
+      this.debouncedOnScroll = debounce(this.onScroll.bind(this), 500, false);
+    }
     componentDidMount() {
-      window.addEventListener("scroll", this.onScroll);
+      window.addEventListener("scroll", this.debouncedOnScroll);
     }
     componentWillUnmount() {
-      window.removeEventListener("scroll", this.onScroll);
+      window.removeEventListener("scroll", this.debouncedOnScroll);
     }
     onScroll() {
-      if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 320) && 
+      if ( this.props &&
+          (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 320) && 
            this.props[this.props.content].length &&
-           !this.props.isLoading) {
+           !this.props.isLoading ) {
         this.props.callback();
       }
     }
@@ -22,9 +27,6 @@ function WithOnScrollGen(Component) {
         <Component {...this.props} />
       );
     }
-  }
-
-  return WithOnScroll;
-}
+  };
 
 export default WithOnScrollGen;

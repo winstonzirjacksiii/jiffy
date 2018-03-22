@@ -12,17 +12,24 @@ class GifCard extends React.Component{
   }
 
   render() {
-    const {src, title, url, username} = this.props.gifObj;
+    const {src, srcLrg, title, url, username} = this.props.gifObj;
     const toggleClass = this.state.toggled ? "is-active" : "";
 
     return (
       <article onClick={this.handleClick.bind(this)} className="m-gif-card e-smack">
         <img src={src} alt={title} />
+        {
+          this.state.toggled &&
+          <img src={srcLrg} alt={title} className="m-gif-card--img-lrg" />
+        }
         <div className={`m-toggle ${toggleClass}`}>
           <div className="m-gif-card--content">
             <a href={url} target="_blank">
               <h2>{title}</h2>
-              <h4>{`@${username}`}</h4>
+              {
+                username &&
+                <h4>{`@${username}`}</h4>
+              }
             </a>
           </div>
         </div>

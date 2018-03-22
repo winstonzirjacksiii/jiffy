@@ -81,6 +81,7 @@ body {
 }
 
 .m-gif-card {
+  position:relative;
   display: inline-block;
   margin: 0 0 1em;
   width: 100%;
@@ -99,6 +100,11 @@ body {
   display:block;
   width:100%;
   height:auto;
+}
+.m-gif-card--img-lrg {
+  position:absolute;
+  top:0;
+  left:0;
 }
 .m-gif-card a {
   display:block;

@@ -33,7 +33,7 @@ class Main extends React.Component {
     return (
       <main>
         <TrendingForm handleSubmit={this.getTrendingData} />
-        <GifGrid gifs={this.state.gifs}/>
+        <GifGrid gifs={this.state.gifs} freshStart={true} />
       </main>
     );
   }

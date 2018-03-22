@@ -13,10 +13,12 @@ class GifGrid extends React.Component {
   }
 
   componentWillReceiveProps(){
-    this.setState({
-      loading: true,
-      loadedGifs: []
-    });
+    if (this.props.freshStart) {
+      this.setState({
+        loading: true,
+        loadedGifs: []
+      });
+    }
   }
 
   onLoad(currGif) {
