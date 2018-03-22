@@ -11,9 +11,9 @@ function WithOnScrollGen(Component) {
       window.removeEventListener("scroll", this.onScroll);
     }
     onScroll() {
-      if ( (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 320) && 
-           this.props.content.length) &&
-           !this.props.isLoading {
+      if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 320) && 
+           this.props[this.props.content].length &&
+           !this.props.isLoading) {
         this.props.callback();
       }
     }
