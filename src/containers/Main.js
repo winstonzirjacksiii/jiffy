@@ -17,7 +17,8 @@ class Main extends React.Component {
       count: "",
       rating: "",
       loadMore: false,
-      isLoading: false
+      isLoading: false,
+      resetGrid: false
     };
   }
 
@@ -26,7 +27,8 @@ class Main extends React.Component {
       term,
       count,
       rating,
-      isLoading: true
+      isLoading: true,
+      resetGrid: true
     });
 
     Giphy.searchGifs(term, count, rating, offset).then((results) => {
@@ -35,7 +37,8 @@ class Main extends React.Component {
 
         this.setState({
           gifs: newResults,
-          isLoading: false
+          isLoading: false,
+          resetGrid: false
         }); 
       }
     });
@@ -44,7 +47,10 @@ class Main extends React.Component {
   handleScroll() {
     const { term, count, rating, gifs } = this.state;
 
-    this.setState({isLoading: true});
+    this.setState({
+      isLoading: true,
+      resetGrid: false
+    });
 
     Giphy.searchGifs(term, count, rating, gifs.length).then((results) => {
       if (results.length) {
@@ -65,7 +71,8 @@ class Main extends React.Component {
         <GifGridWithOnScroll gifs={this.state.gifs}
                              content="gifs" 
                              isLoading={this.state.isLoading} 
-                             callback={this.handleScroll.bind(this)} 
+                             callback={this.handleScroll.bind(this)}
+                             freshStart={this.state.resetGrid} 
         />
       </main>
     );

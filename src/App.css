@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:700|Open+Sans');
+
 @font-face {
   font-family: 'jiffy-util';
   src: url('./fonts/jiffy-util.eot?28512001');
@@ -31,7 +33,7 @@
 body {
   background-color: #121212;
   color: #fff;
-  font-family: 'interface','Helvetica Neue',helvetica,sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   font-weight: normal;
   height: 100%;
@@ -43,6 +45,11 @@ body {
   max-width: 1040px;
 }
 
+h1, h2, button {
+  font-family: 'PT Sans', sans-serif;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
 
 .App {
   text-align: center;
@@ -130,6 +137,8 @@ body {
   line-height:30px;
   border-style:solid;
   border-radius: 3px;
+  padding-left:8px;
+  padding-right:8px;
   margin: 0 10px;
 }
 .m-form input,
@@ -138,7 +147,20 @@ body {
 }
 .m-form button {
   float:right;
+  color:#fff;
+  line-height:26px;
+  text-align:center;
+  border-color:#444;
+  background:#444;
+  transition:background 250ms ease-in, transform 250ms ease-in;
 }
+.m-form button:hover {
+  background:#333;
+}
+.m-form button:active {
+  transform:scale(0.95);
+}
+
 
 .m-toggle {
   overflow:hidden;

@@ -8,8 +8,7 @@ function Header () {
         <NavLink to="/" exact activeClassName="active">Home</NavLink>
         <NavLink to="/trending" activeClassName="active">Trending</NavLink>
       </nav>
-      <h1 className="App-title">Welcome to Jiffy</h1>
-      <h3>definitely not just a Giphy API tech demo...</h3>
+      <h1 className="App-title">Jiffy</h1>
     </header>
   );
 }
