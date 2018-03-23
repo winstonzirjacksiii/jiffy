@@ -57,11 +57,14 @@ class Main extends React.Component {
         const newResults = results.map(GifFormatter);
 
         this.setState({
-          gifs: [...this.state.gifs, ...newResults],
-          isLoading: false
+          gifs: [...this.state.gifs, ...newResults]
         }); 
       }
     });
+  }
+
+  handleLoadComplete() {
+    this.setState({isLoading: false});
   }
 
   render() {
@@ -72,7 +75,8 @@ class Main extends React.Component {
                              content="gifs" 
                              isLoading={this.state.isLoading} 
                              callback={this.handleScroll.bind(this)}
-                             freshStart={this.state.resetGrid} 
+                             freshStart={this.state.resetGrid}
+                             loadComplete={this.handleLoadComplete.bind(this)}
         />
       </main>
     );

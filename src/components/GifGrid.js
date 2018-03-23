@@ -24,6 +24,9 @@ class GifGrid extends React.Component {
   onLoad(currGif) {
     console.log("onload", currGif);
     const loading = this.state.loadedGifs.length+1 < this.props.gifs.length ? true : false;
+    
+    if (!loading && this.props.loadComplete) this.props.loadComplete();
+    
     this.setState({
       loading,
       loadedGifs: [...this.state.loadedGifs, currGif]}
