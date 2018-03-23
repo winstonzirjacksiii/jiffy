@@ -185,6 +185,7 @@ h1, h2, button {
   height: auto;
   line-height:normal;
   padding: 5px 8px;
+  cursor: pointer;
   -webkit-transition: background 250ms ease-in, -webkit-transform 250ms ease-in;
   transition: background 250ms ease-in, -webkit-transform 250ms ease-in;
   transition: background 250ms ease-in, transform 250ms ease-in;
