@@ -25,8 +25,6 @@ class SearchForm extends React.Component {
         rating: "R"
       });
     }
-
-    document.getElementById("searchField").value = "";
   }
 
   render () {

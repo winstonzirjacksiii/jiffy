@@ -20,7 +20,6 @@ class SearchForm extends React.Component {
       count: 20,
       rating: "R"
     });
-    document.getElementById("searchField").value = "";
   }
 
   render () {
