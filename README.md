@@ -27,7 +27,7 @@ These animations function as UX enhancements - allowing focus to be directed tow
 Instead of simply adding in onScroll event listeners and callbacks to the creation of the GifGrid component, I opted to build this feature out as a higher order component to allow for more flexibility. Unfortunately, there is only really one usecase for scroll-to-load in this app, so this is a bit superfluous.
 
 #### Not Forgetting that bandwidth is a thing
-This includes debouncing scroll-to-load functionality along with only displaying downsampled gifs until content is engaged with.
+This includes debouncing scroll-to-load functionality along with only displaying downsampled gifs until content is engaged with. On top of that, I load all of the images out of site and then place them into the template once each has finished loading. This prevents visible loading of content.
 
 #### Animations
 Added in some fancy animations with CSS3. Most notable are making Gifs pop in and remain blurred until fully loaded.
