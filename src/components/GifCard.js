@@ -23,15 +23,15 @@ class GifCard extends React.Component{
           <img src={srcLrg} alt={title} className="m-gif-card--img-lrg" />
         }
         <div className={`m-toggle ${toggleClass}`}>
-          <div className="m-gif-card--content">
-            <a href={url} target="_blank">
+          <a href={url} target="_blank" className="m-gif-card--content">
+            <div class="m-gif-card--text">
               <h2>{title}</h2>
               {
                 username &&
                 <h4>{`@${username}`}</h4>
               }
-            </a>
-          </div>
+            </div>
+          </a>
         </div>
       </article>
     );
